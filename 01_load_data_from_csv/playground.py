@@ -34,7 +34,7 @@ def str_column_to_int(dataset, column):
     return lookup
 
 # Load pima dataset
-pima_filename = "datasets/pima-indians-diabetes.data.csv"
+pima_filename = "../00_datasets/pima-indians-diabetes.data.csv"
 pima_dataset = load_csv(pima_filename)
 print(pima_dataset[0])
 
@@ -44,7 +44,7 @@ print(pima_dataset[0])
 
 
 # Load iris dataset
-iris_filename = "datasets/iris.data.csv"
+iris_filename = "../00_datasets/iris.data.csv"
 iris_dataset = load_csv(iris_filename)
 print(iris_dataset[0])
 
