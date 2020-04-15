@@ -1,4 +1,4 @@
-from lib import data_loader
+from custom_library import data_loader
 
 # Load pima dataset
 pima_filename = "00_datasets/pima-indians-diabetes.data.csv"

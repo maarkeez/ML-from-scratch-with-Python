@@ -1,4 +1,4 @@
-from lib import data_loader
+from custom_library import data_loader
 
 dataset = [
     [50, 30],
