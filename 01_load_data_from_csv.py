@@ -1,7 +1,7 @@
 from custom_library import data_loader
 
 # Load pima dataset
-pima_filename = "00_datasets/pima-indians-diabetes.data.csv"
+pima_filename = "datasets/pima-indians-diabetes.data.csv"
 pima_dataset = data_loader.load_csv(pima_filename)
 print(pima_dataset[0])
 print
@@ -12,7 +12,7 @@ print(pima_dataset[0])
 print
 
 # Load iris dataset
-iris_filename = "00_datasets/iris.data.csv"
+iris_filename = "datasets/iris.data.csv"
 iris_dataset = data_loader.load_csv(iris_filename)
 print(iris_dataset[0])
 print

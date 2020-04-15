@@ -14,6 +14,7 @@ def load_csv(filename):
     print("\t- File: {0}".format(filename))
     print("\t- Rows: {0}".format(len(dataset)))
     print("\t- Columns: {0}".format(len(dataset[0])))
+    print
     return dataset
 
 def str_column_to_float(dataset, column):
