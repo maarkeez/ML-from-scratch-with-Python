@@ -21,6 +21,7 @@ class Test(TestCase):
             ["1.4", 0],
             ["1.5", 0]
         ]
+        expected_value_map = {'One': 2, 'Three': 0, 'Two': 1}
         dataset = [
             ["1.0", "One"],
             ["1.1", "One"],
@@ -33,3 +34,4 @@ class Test(TestCase):
         column_value_map = column_conversion.str_column_to_int(dataset, column=1)
 
         self.assertEqual(expected_dataset, dataset)
+        self.assertEqual(column_value_map, expected_value_map)
