@@ -3,6 +3,7 @@ import csv_loader
 import mean
 import minmax
 import normalize
+import split_dataset
 import standard_deviations
 
 
@@ -36,3 +37,11 @@ def column_stdevs(dataset, means):
 
 def standardize_dataset(dataset, means, stdevs):
     return standard_deviations.standardize_dataset(dataset, means, stdevs)
+
+
+def split_with_train_test(dataset, split=0.6):
+    return split_dataset.train_test_split(dataset, split)
+
+
+def split_with_cross_validation(dataset, folds=3):
+    return split_dataset.cross_validation_split(dataset, folds)
