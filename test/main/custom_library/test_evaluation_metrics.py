@@ -11,3 +11,19 @@ class Test(TestCase):
         accuracy = api.evaluate_accuracy(actual, predicted)
 
         self.assertEqual(80.0, accuracy)
+
+    def test_confusion_matrix(self):
+        positive = 0
+        negative = 1
+
+        actual = [positive, positive, positive, positive, positive, negative, negative, negative, negative, negative]
+        predicted = [positive, negative, negative, positive, positive, negative, positive, negative, negative, negative]
+
+        matrix = api.evaluate_confusion_matrix(actual, predicted)
+        matrix.print_matrix()
+
+        self.assertEqual(3, matrix.true_positives)
+        self.assertEqual(1, matrix.false_positives)
+
+        self.assertEqual(4, matrix.true_negatives)
+        self.assertEqual(2, matrix.false_negatives)
