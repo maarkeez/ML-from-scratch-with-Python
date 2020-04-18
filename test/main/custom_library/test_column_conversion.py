@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.main.custom_library import column_conversion
+from src.main.custom_library import api_marchine_learning as api
 
 
 class Test(TestCase):
@@ -8,7 +8,7 @@ class Test(TestCase):
         expected_dataset = [[1.0, "2.0", "3.0"]]
         dataset = [["1.0", "2.0", "3.0"]]
 
-        column_conversion.str_column_to_float(dataset, column=0)
+        api.str_column_to_float(dataset, column=0)
 
         self.assertEqual(expected_dataset, dataset)
 
@@ -31,7 +31,7 @@ class Test(TestCase):
             ["1.5", "Three"]
         ]
 
-        column_value_map = column_conversion.str_column_to_int(dataset, column=1)
+        column_value_map = api.str_column_to_int(dataset, column=1)
 
         self.assertEqual(expected_dataset, dataset)
         self.assertEqual(column_value_map, expected_value_map)

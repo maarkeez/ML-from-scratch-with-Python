@@ -1,14 +1,14 @@
 import os
 from unittest import TestCase
 
-from src.main.custom_library import csv_loader
+from src.main.custom_library import api_marchine_learning as api
 
 
 class Test(TestCase):
     def test_load_csv(self):
         csv_path = self.resource_path("simple_dataset.csv")
         expected_dataset = [["1.0", "2.0", "3.0", "4.0"]]
-        dataset = csv_loader.load_csv(csv_path)
+        dataset = api.load_csv(csv_path)
         self.assertEqual(expected_dataset, dataset)
 
     def resource_path(self, resource_file_name):

@@ -1,7 +1,7 @@
 from random import seed
 from unittest import TestCase
 
-from src.main.custom_library import split_dataset
+from src.main.custom_library import api_marchine_learning as api
 
 
 class Test(TestCase):
@@ -11,7 +11,7 @@ class Test(TestCase):
         # seed: is to ensure the exact same split of the data is made every time the code is executed
         seed(1)
 
-        train, test = split_dataset.train_test_split(self.dataset)
+        train, test = api.split_with_train_test(self.dataset)
 
         self.assertEqual(6, len(train))
         self.assertEqual(4, len(test))
@@ -20,7 +20,7 @@ class Test(TestCase):
         # seed: is to ensure the exact same split of the data is made every time the code is executed
         seed(1)
 
-        folds = split_dataset.cross_validation_split(self.dataset, folds=4)
+        folds = api.split_with_cross_validation(self.dataset, folds=4)
 
         self.assertEqual(4, len(folds))
         self.assertEqual(2, len(folds[0]))

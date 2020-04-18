@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.main.custom_library import minmax
+from src.main.custom_library import api_marchine_learning as api
 
 
 class Test(TestCase):
@@ -12,6 +12,6 @@ class Test(TestCase):
             [4, 5],
         ]
 
-        min_max_matrix = minmax.dataset_minmax(dataset)
+        min_max_matrix = api.dataset_minmax(dataset)
 
         self.assertEqual(expected_min_max_matrix, min_max_matrix)

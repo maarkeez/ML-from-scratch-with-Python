@@ -1,7 +1,7 @@
 import copy
 from unittest import TestCase
 
-from src.main.custom_library import standard_deviations
+from src.main.custom_library import api_marchine_learning as api
 
 
 class Test(TestCase):
@@ -10,7 +10,7 @@ class Test(TestCase):
     dataset_stdevs = [15.275252316519467, 30.550504633038933]
 
     def test_column_stdevs(self):
-        stdevs = standard_deviations.column_stdevs(self.dataset, self.means)
+        stdevs = api.column_stdevs(self.dataset, self.means)
 
         self.assertEqual(self.dataset_stdevs, stdevs)
 
@@ -22,6 +22,6 @@ class Test(TestCase):
         ]
         dataset = copy.deepcopy(self.dataset)
 
-        standard_deviations.standardize_dataset(dataset, self.means, self.dataset_stdevs)
+        api.standardize_dataset(dataset, self.means, self.dataset_stdevs)
 
         self.assertEqual(expected_standarized_dataset, dataset)
