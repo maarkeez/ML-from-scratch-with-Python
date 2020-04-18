@@ -1,4 +1,4 @@
-import algorithim_evaluation
+import algorithm_evaluation
 import base_models
 import column_conversion
 import csv_loader
@@ -87,4 +87,4 @@ def algorithm_regression_zero_rule(train, test):
 
 
 def algorithm_evaluation_with_train_test_split(dataset, algorithm, split, *args):
-    return algorithim_evaluation.with_train_test_split(dataset, algorithm, split, *args)
+    return algorithm_evaluation.with_train_test_split(dataset, algorithm, split, *args)
