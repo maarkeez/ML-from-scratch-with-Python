@@ -11,3 +11,11 @@ class Test(TestCase):
         column_means = api.column_means(dataset)
 
         self.assertEqual(expected_column_means, column_means)
+
+    def test_mean(self):
+        values = [1, 2, 3]
+        expected_mean = 2
+
+        mean = api.mean_of_list(values)
+
+        self.assertEqual(expected_mean, mean)

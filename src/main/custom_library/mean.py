@@ -8,3 +8,7 @@ def column_means(dataset):
         means[i] = sum(col_values) / number_of_rows
 
     return means
+
+
+def mean_of_list(value_list):
+    return sum(value_list) / float(len(value_list))

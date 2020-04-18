@@ -8,6 +8,7 @@ import minmax
 import normalize
 import split_dataset
 import standard_deviations
+import variance
 
 
 def load_csv(filename):
@@ -20,6 +21,10 @@ def load_dataset_pima():
 
 def load_dataset_iris():
     return csv_loader.load_dataset_iris()
+
+
+def load_dataset_swedish_insurance():
+    return csv_loader.load_dataset_swedish_insurance()
 
 
 def str_column_to_float(dataset, column):
@@ -40,6 +45,18 @@ def normalize_dataset(dataset, minmax):
 
 def column_means(dataset):
     return mean.column_means(dataset)
+
+
+def mean_of_list(value_list):
+    return mean.mean_of_list(value_list)
+
+
+def variance_of_list(value_list):
+    return variance.variance_of_list(value_list)
+
+
+def covariance_of_lists(x, y):
+    return variance.covariance_of_lists(x, y)
 
 
 def column_stdevs(dataset, means):

@@ -28,6 +28,11 @@ def load_dataset_iris():
     return load_csv(filename)
 
 
+def load_dataset_swedish_insurance():
+    filename = resource_path("swedish_insurance.csv")
+    return load_csv(filename)
+
+
 def resource_path(resource_file_name):
     custom_library_path = os.path.split(__file__)[0]
     main_path = parent_path(custom_library_path)
