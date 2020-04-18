@@ -60,3 +60,13 @@ class ConfusionMatrix:
         print "          Positive |     {}         {}    ".format(self.true_positives, self.false_positives)
         print "PREDICTED            "
         print "          Negative |     {}         {}    ".format(self.false_negatives, self.true_negatives)
+
+
+def mean_absolute_error(actual, predicted):
+    sum_error = 0.0
+    total_instances = len(actual)
+
+    for i in range(total_instances):
+        sum_error += abs(predicted[i] - actual[i])
+
+    return sum_error / float(total_instances)

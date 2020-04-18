@@ -27,3 +27,12 @@ class Test(TestCase):
 
         self.assertEqual(4, matrix.true_negatives)
         self.assertEqual(2, matrix.false_negatives)
+
+    def test_mae(self):
+        actual = [0.1, 0.2, 0.3, 0.4, 0.5]
+        predicted = [0.11, 0.19, 0.29, 0.41, 0.5]
+
+        mae = api.evaluate_mean_absolute_error(actual, predicted)
+        mae_round = round(mae, 3)
+
+        self.assertEqual(0.008, mae_round)
