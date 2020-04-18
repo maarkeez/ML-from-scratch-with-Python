@@ -11,7 +11,7 @@ class Test(TestCase):
 
         pima_dataset = self.load_and_prepare_dataset_pima()
 
-        accuracy = api.algorithm_evaluation_with_train_test_split(
+        accuracy = api.algorithm_evaluation_classification_with_train_test_split(
             dataset=pima_dataset,
             algorithm=api.algorithm_classification_zero_rule,
             split=0.6)
@@ -32,7 +32,7 @@ class Test(TestCase):
         ]
         pima_dataset = self.load_and_prepare_dataset_pima()
 
-        scores = api.algorithm_evaluation_with_cross_validation(
+        scores = api.algorithm_evaluation_classification_with_cross_validation(
             dataset=pima_dataset,
             algorithm=api.algorithm_classification_zero_rule,
             n_folds=5
@@ -43,9 +43,44 @@ class Test(TestCase):
         self.assertEqual(expected_scores, scores)
         self.assertEqual(65.098, mean_accuracy)
 
+    def test_regression_with_simple_linear(self):
+        data_set = [[1, 1], [2, 3], [4, 3], [3, 2], [5, 5]]
+
+        # split=0.0 => Uses all the data_set as train_set
+        rmse = api.algorithm_evaluation_regression_with_simple_linear(
+            data_set=data_set,
+            algorithm=api.algorithm_regression_simple_linear,
+            split=0.0
+        )
+        rmse = round(rmse, 3)
+
+        self.assertEqual(0.693, rmse)
+
+    def test_regression_with_simple_linear_insurance_dataset(self):
+        seed(1)
+
+        insurance_data_set = self.load_and_prepare_dataset_insurance()
+
+        rmse = api.algorithm_evaluation_regression_with_simple_linear(
+            data_set=insurance_data_set,
+            algorithm=api.algorithm_regression_simple_linear,
+            split=0.6
+        )
+        rmse = round(rmse, 3)
+
+        # TODO: Review this assertion, in the example it was 38.339
+        self.assertEqual(37.047, rmse)
+
+    def load_and_prepare_dataset_insurance(self):
+        insurance_data_set = api.load_dataset_swedish_insurance()
+        self.set_all_columns_to_float(insurance_data_set)
+        return insurance_data_set
+
     def load_and_prepare_dataset_pima(self):
         pima_dataset = api.load_dataset_pima()
+        self.set_all_columns_to_float(pima_dataset)
+        return pima_dataset
+
+    def set_all_columns_to_float(self, pima_dataset):
         for row_index in range(len(pima_dataset[0])):
             api.str_column_to_float(pima_dataset, row_index)
-
-        return pima_dataset

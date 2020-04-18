@@ -44,3 +44,15 @@ def classification_with_cross_validation(data_set, algorithm, n_folds, *args):
         scores.append(accuracy)
 
     return scores
+
+
+def regression_with_simple_linear(data_set, algorithm, split, *args):
+    output_value_col_index = -1
+
+    train_set, test_set_raw = split_dataset.train_test_split(data_set, split)
+    test_set = column_conversion.clear_column(test_set_raw, output_value_col_index)
+
+    actual = [row[output_value_col_index] for row in test_set_raw]
+    predicted = algorithm(data_set, test_set, *args)
+
+    return evaluation_metrics.root_mean_squared_error(actual, predicted)

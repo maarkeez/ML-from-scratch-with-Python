@@ -2,6 +2,18 @@ import mean
 import variance
 
 
+def algorithm_regression_simple_linear(train_set, test_set):
+    b0, b1 = estimate_coefficients(train_set)
+
+    predictions = list()
+    for row in test_set:
+        x = row[0]
+        y = b0 + b1 * x
+        predictions.append(y)
+
+    return predictions
+
+
 def estimate_coefficients(data_set):
     x = [row[0] for row in data_set]
     y = [row[1] for row in data_set]

@@ -104,12 +104,20 @@ def algorithm_regression_zero_rule(train, test):
     return base_models.algorithm_regression_zero_rule(train, test)
 
 
-def algorithm_evaluation_with_train_test_split(dataset, algorithm, split, *args):
+def algorithm_regression_simple_linear(train_set, test_set):
+    return linear_regression.algorithm_regression_simple_linear(train_set, test_set)
+
+
+def algorithm_evaluation_classification_with_train_test_split(dataset, algorithm, split, *args):
     return algorithm_evaluation.classification_with_train_test_split(dataset, algorithm, split, *args)
 
 
-def algorithm_evaluation_with_cross_validation(dataset, algorithm, n_folds, *args):
+def algorithm_evaluation_classification_with_cross_validation(dataset, algorithm, n_folds, *args):
     return algorithm_evaluation.classification_with_cross_validation(dataset, algorithm, n_folds, *args)
+
+
+def algorithm_evaluation_regression_with_simple_linear(data_set, algorithm, split, *args):
+    return algorithm_evaluation.regression_with_simple_linear(data_set, algorithm, split, *args)
 
 
 def estimate_coefficients(data_set):
