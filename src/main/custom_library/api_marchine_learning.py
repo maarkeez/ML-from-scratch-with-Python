@@ -28,6 +28,10 @@ def load_dataset_swedish_insurance():
     return csv_loader.load_dataset_swedish_insurance()
 
 
+def load_dataset_wine_quality():
+    return csv_loader.load_dataset_wine_quality()
+
+
 def str_column_to_float(dataset, column):
     column_conversion.str_column_to_float(dataset, column)
 
