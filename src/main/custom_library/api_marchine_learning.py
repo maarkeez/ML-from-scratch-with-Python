@@ -89,5 +89,6 @@ def algorithm_regression_zero_rule(train, test):
 def algorithm_evaluation_with_train_test_split(dataset, algorithm, split, *args):
     return algorithm_evaluation.classification_with_train_test_split(dataset, algorithm, split, *args)
 
+
 def algorithm_evaluation_with_cross_validation(dataset, algorithm, n_folds, *args):
     return algorithm_evaluation.classification_with_cross_validation(dataset, algorithm, n_folds, *args)
