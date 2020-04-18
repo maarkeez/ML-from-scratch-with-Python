@@ -15,3 +15,12 @@ def str_column_to_int(dataset, column):
         row[column] = lookup[row[column]]
 
     return lookup
+
+
+def clear_column(matrix, col_index):
+    matrix_cleared = list()
+    for row in matrix:
+        row_copy = list(row)
+        row_copy[col_index] = None
+        matrix_cleared.append(row_copy)
+    return matrix_cleared

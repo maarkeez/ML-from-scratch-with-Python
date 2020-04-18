@@ -1,3 +1,5 @@
+import algorithim_evaluation
+import base_models
 import column_conversion
 import csv_loader
 import evaluation_metrics
@@ -6,11 +8,18 @@ import minmax
 import normalize
 import split_dataset
 import standard_deviations
-from src.main.custom_library import base_models
 
 
 def load_csv(filename):
     return csv_loader.load_csv(filename)
+
+
+def load_dataset_pima():
+    return csv_loader.load_dataset_pima()
+
+
+def load_dataset_iris():
+    return csv_loader.load_dataset_iris()
 
 
 def str_column_to_float(dataset, column):
@@ -75,3 +84,7 @@ def algorithm_classification_zero_rule(train, test):
 
 def algorithm_regression_zero_rule(train, test):
     return base_models.algorithm_regression_zero_rule(train, test)
+
+
+def algorithm_evaluation_with_train_test_split(dataset, algorithm, split, *args):
+    return algorithim_evaluation.with_train_test_split(dataset, algorithm, split, *args)

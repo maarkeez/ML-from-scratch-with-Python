@@ -12,8 +12,7 @@ print(pima_dataset[0])
 print
 
 # Load iris dataset
-iris_filename = "../resources/datasets/iris.data.csv"
-iris_dataset = api.load_csv(iris_filename)
+iris_dataset = api.load_dataset_iris()
 print(iris_dataset[0])
 print
 

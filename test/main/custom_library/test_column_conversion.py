@@ -1,6 +1,8 @@
+import copy
 from unittest import TestCase
 
 from src.main.custom_library import api_marchine_learning as api
+from src.main.custom_library import column_conversion
 
 
 class Test(TestCase):
@@ -35,3 +37,13 @@ class Test(TestCase):
 
         self.assertEqual(expected_dataset, dataset)
         self.assertEqual(column_value_map, expected_value_map)
+
+    def test_clear_colum(self):
+        dataset = [[1, 2, 3], [4, 5, 6]]
+        initial_dataset = copy.deepcopy(dataset)
+        expected_output = [[1, 2, None], [4, 5, None]]
+
+        cleared_dataset = column_conversion.clear_column(dataset, -1)
+        
+        self.assertEqual(expected_output, cleared_dataset, "Last column should be set as None")
+        self.assertEqual(initial_dataset, dataset, "Initial dataset should not change")
