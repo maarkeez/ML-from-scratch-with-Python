@@ -1,5 +1,6 @@
 import column_conversion
 import csv_loader
+import evaluation_metrics
 import mean
 import minmax
 import normalize
@@ -45,3 +46,7 @@ def split_with_train_test(dataset, split=0.6):
 
 def split_with_cross_validation(dataset, folds=3):
     return split_dataset.cross_validation_split(dataset, folds)
+
+
+def evaluate_accuracy(actual, predicted):
+    return evaluation_metrics.accuracy(actual, predicted)
