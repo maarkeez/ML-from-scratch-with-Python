@@ -55,5 +55,10 @@ def evaluate_accuracy(actual, predicted):
 def evaluate_confusion_matrix(actual, predicted):
     return evaluation_metrics.confusion_matrix(actual, predicted)
 
+
 def evaluate_mean_absolute_error(actual, predicted):
     return evaluation_metrics.mean_absolute_error(actual, predicted)
+
+
+def evaluate_root_mean_squared_error(actual, predicted):
+    return evaluation_metrics.root_mean_squared_error(actual, predicted)

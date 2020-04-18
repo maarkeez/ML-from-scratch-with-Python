@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 def accuracy(actual, predicted):
     total_instances = len(actual)
     correct = 0
@@ -70,3 +73,16 @@ def mean_absolute_error(actual, predicted):
         sum_error += abs(predicted[i] - actual[i])
 
     return sum_error / float(total_instances)
+
+
+def root_mean_squared_error(actual, predicted):
+    sum_error = 0.0
+    total_instances = len(actual)
+
+    for i in range(total_instances):
+        prediction_error = predicted[i] - actual[i]
+        sum_error += (prediction_error ** 2)
+
+    mean_error = sum_error / float(total_instances)
+
+    return sqrt(mean_error)

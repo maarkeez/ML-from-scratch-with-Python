@@ -36,3 +36,12 @@ class Test(TestCase):
         mae_round = round(mae, 3)
 
         self.assertEqual(0.008, mae_round)
+
+    def test_rmse(self):
+        actual = [0.1, 0.2, 0.3, 0.4, 0.5]
+        predicted = [0.11, 0.19, 0.29, 0.41, 0.5]
+
+        rmse = api.evaluate_root_mean_squared_error(actual, predicted)
+        rmse_round = round(rmse, 11)
+
+        self.assertEqual(0.00894427191, rmse_round)
