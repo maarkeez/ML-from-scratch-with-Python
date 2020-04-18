@@ -6,7 +6,7 @@ import minmax
 import normalize
 import split_dataset
 import standard_deviations
-from src.main.custom_library import random_algorithim
+from src.main.custom_library import base_models
 
 
 def load_csv(filename):
@@ -66,4 +66,12 @@ def evaluate_root_mean_squared_error(actual, predicted):
 
 
 def algorithm_random(train, test):
-    return random_algorithim.random_algorithm(train, test)
+    return base_models.random_algorithm(train, test)
+
+
+def algorithm_classification_zero_rule(train, test):
+    return base_models.algorithm_classification_zero_rule(train, test)
+
+
+def algorithm_regression_zero_rule(train, test):
+    return base_models.algorithm_regression_zero_rule(train, test)
