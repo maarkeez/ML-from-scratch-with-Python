@@ -3,13 +3,14 @@ import base_models
 import column_conversion
 import csv_loader
 import evaluation_metrics
+import linear_regression
 import mean
 import minmax
+import multivariante_linear_regresion
 import normalize
 import split_dataset
 import standard_deviations
 import variance
-from src.main.custom_library import linear_regression
 
 
 def load_csv(filename):
@@ -112,12 +113,21 @@ def algorithm_regression_simple_linear(train_set, test_set):
     return linear_regression.algorithm_regression_simple_linear(train_set, test_set)
 
 
+def algorithm_regression_linear_stochastic_gradient_descent(train_set, test_set, learning_rate, n_epoch):
+    return multivariante_linear_regresion.algorithm_stochastic_gradient_descent(
+        train_set, test_set, learning_rate, n_epoch)
+
+
 def algorithm_evaluation_classification_with_train_test_split(dataset, algorithm, split, *args):
     return algorithm_evaluation.classification_with_train_test_split(dataset, algorithm, split, *args)
 
 
 def algorithm_evaluation_classification_with_cross_validation(dataset, algorithm, n_folds, *args):
     return algorithm_evaluation.classification_with_cross_validation(dataset, algorithm, n_folds, *args)
+
+
+def algorithm_evaluation_regression_with_cross_validation(dataset, algorithm, n_folds, *args):
+    return algorithm_evaluation.regression_with_cross_validation(dataset, algorithm, n_folds, *args)
 
 
 def algorithm_evaluation_regression_with_simple_linear(data_set, algorithm, split, *args):
