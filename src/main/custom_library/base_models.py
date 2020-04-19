@@ -23,6 +23,7 @@ def algorithm_classification_zero_rule(train, test):
 
     return predicted
 
+
 # The prediction output is the mean of the train dataset
 def algorithm_regression_zero_rule(train, test):
     output_values = [row[-1] for row in train]

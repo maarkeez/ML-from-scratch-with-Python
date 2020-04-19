@@ -44,6 +44,6 @@ class Test(TestCase):
         expected_output = [[1, 2, None], [4, 5, None]]
 
         cleared_dataset = column_conversion.clear_column(dataset, -1)
-        
+
         self.assertEqual(expected_output, cleared_dataset, "Last column should be set as None")
         self.assertEqual(initial_dataset, dataset, "Initial dataset should not change")
